@@ -11,7 +11,7 @@ pipeline {
                 echo ${BRANCH_NAME} > ../BRANCH.txt
                 '''
                 script {
-               if (env.GIT_BRANCH == "Release") {
+               if (env.GIT_BRANCH == "release") {
 
                 withCredentials([usernamePassword(credentialsId: 'DockerHub_Cred', usernameVariable: 'USERNAME_Docker', passwordVariable: 'PASSWORD_Docker')]) 
                     {
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo 'Deploy'
                 script {
-                if (env.GIT_BRANCH == "Dev" || env.GIT_BRANCH == "Test" || env.GIT_BRANCH == "Preprod") {
+                if (env.GIT_BRANCH == "dev" || env.GIT_BRANCH == "test" || env.GIT_BRANCH == "preprod") {
                     withCredentials([file(credentialsId: 'my_KubeConfig', variable: 'KUBECONFIG_ITI')]) {
                         sh ''' 
                          export BUILD_NUMBER=$(cat ../build.txt)

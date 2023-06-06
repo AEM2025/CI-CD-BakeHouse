@@ -24,15 +24,3 @@ Password: 123456
 * Add some items to be viewed in **Our Range**.
  
 ***
-
-### Used Technologies:
-* HTML5
-* CSS
-* JavaScript
-
-***
-
-### Contributors:
-|![Kareem_Elkasaby](images/kareem1.jpg)|![Mina_Maher](images/mina.jpg)|![Maha_Amin](images/maha.jpg)|
-|:-----------------:|:-----------:|:-----------------:|
-|[Kareem El-Kasaby](https://github.com/kareemelkasaby1)|[Mina Maher](https://github.com/MinaMaher0)|[Maha Amin](https://github.com/MahaAmin)|

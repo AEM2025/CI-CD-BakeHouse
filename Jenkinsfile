@@ -42,7 +42,7 @@ pipeline {
                          mv Deployment/Dev-namespace.yaml Deployment/Dev-namespace.yaml.tmp
                          cat Deployment/Dev-namespace.yaml.tmp | envsubst > Deployment/Dev-namespace.yaml
                          rm -f Deployment/Dev-namespace.yaml.tmp
-                         kubectl apply -f Deployment --kubeconfig ${KUBECONFIG_ITI}
+                         kubectl apply -f Deployment -n ${BRANCH_NAME} --kubeconfig ${KUBECONFIG_ITI}
                          echo ${BUILD_NUMBER}
                         '''
                     }    

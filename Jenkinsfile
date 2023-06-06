@@ -4,10 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+
+                sh '''
                 echo 'Build'
                 echo " -----------------------------"
-                echo env.GIT_BRANCH 
-
+                echo env.GIT_BRANCH
+                echo ${BRANCH_NAME} > ../BRANCH.txt
+                '''
+                
                 script {
                if (env.GIT_BRANCH == "release") {
 

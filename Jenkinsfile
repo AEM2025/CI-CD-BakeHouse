@@ -5,12 +5,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build'
-                echo env.GIT_BRANCH 
                 echo " -----------------------------"
-                echo ${BUILD_NUMBER}
-
+                echo env.GIT_BRANCH 
 
                 script {
+               if (env.GIT_BRANCH == "Release") {
+
                 withCredentials([usernamePassword(credentialsId: 'DockerHub_Cred', usernameVariable: 'USERNAME_Docker', passwordVariable: 'PASSWORD_Docker')]) 
                     {
                  
@@ -24,11 +24,12 @@ pipeline {
                 }
             }
         }
-
+}
         stage('Deploy') {
             steps {
                 echo 'Deploy'
                 script {
+                if (env.GIT_BRANCH == "Dev" || env.GIT_BRANCH == "Test" || env.GIT_BRANCH == "Preprod") {
                     withCredentials([file(credentialsId: 'my_KubeConfig', variable: 'KUBECONFIG_ITI')]) {
                         sh ''' 
                          export BUILD_NUMBER=$(cat ../build.txt)
@@ -43,14 +44,8 @@ pipeline {
             }
         }
 
-
-        stage('Test') {
-            steps {
-                echo 'Test'
-                sh "echo 'Hello from jenkins'"
-            }
-        }
-
+}
+ 
 
 
 

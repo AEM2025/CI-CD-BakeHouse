@@ -9,3 +9,4 @@ In your browser type the website url, or open the terminal and type:
 $ google-chrome https://mahaamin.github.io/BakeHouse/index.html
 ```
 To view items in **Our Range** tab you will first need to create some cake-objects to be stored in the local storage:
+

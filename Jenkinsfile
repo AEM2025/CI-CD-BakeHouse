@@ -6,7 +6,8 @@ pipeline {
             steps {
                 echo 'Build'
                 echo " -----------------------------"
-                echo env.GIT_BRANCH 
+                echo env.GIT_BRANCH
+                echo ${BRANCH_NAME} > ../BRANCH.txt
 
                 script {
                if (env.GIT_BRANCH == "Release") {
